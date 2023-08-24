@@ -18,7 +18,13 @@ const typeDefs = gql`
 
     type Query {
         items: [Item]
+        item (id: ID!): Item
         users: [User]
+        user (id: ID!): User
+    }
+
+    type Mutation {
+        addItem (name: String!, description: String, price: Float!, image: String): Item
     }
 `;
 
