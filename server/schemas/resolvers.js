@@ -39,13 +39,38 @@ const resolvers = {
     },
     Mutation: {
         addItem: async (parent, { name, description, price, image }) => {
-            const itemData = await Item.create({
-                name,
-                description,
-                price,
-                image,
-            })
-            return itemData;
+            try {
+                const itemData = await Item.create({
+                    name,
+                    description,
+                    price,
+                    image,
+                })
+
+                return itemData;
+            } catch (error) {
+                console.error(error);
+                throw error
+            }
+        },
+        updateItem: async (parent, { id, name, description, price, image }, context) => {
+            try {
+                const itemData = await Item.findByIdAndUpdate(
+                    id,
+                    { name, description, price, image },
+                    { new: true }
+                )
+
+                if (!itemData) {
+                    throw new Error('Item with this id not found!')
+                }
+
+                return itemData;
+            } catch (error) {
+                console.error(error);
+                throw error;
+            }
+
         }
     }
 }
