@@ -70,7 +70,20 @@ const resolvers = {
                 console.error(error);
                 throw error;
             }
+        },
+        deleteItem: async (parent, { id }, context) => {
+            try {
+                const itemData = await Item.findByIdAndDelete(id)
 
+                if (!itemData) {
+                    throw new Error('No item with this id found!')
+                }
+
+                return itemData;
+            } catch (error) {
+                console.error(error);
+                throw error;
+            }
         }
     }
 }
