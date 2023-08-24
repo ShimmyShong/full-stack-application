@@ -1,8 +1,8 @@
-const { gql } = require('apollo-server-express')
+const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
     type Item {
-        id: ID
+        id: ID!
         name: String!
         description: String!
         price: Float!
@@ -10,17 +10,16 @@ const typeDefs = gql`
     }
 
     type User {
-        id: ID
+        id: ID!
         firstName: String!
         lastName: String!
         email: String!
-        password: String!
     }
 
     type Query {
         items: [Item]
         users: [User]
     }
-`
+`;
 
-module.exports = typeDefs;
+module.exports = typeDefs

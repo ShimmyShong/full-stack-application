@@ -3,12 +3,11 @@ const { Item, User } = require('../models');
 const resolvers = {
     Query: {
         items: async () => {
-            return Item.find({});
+            return await Item.find({});
         },
         users: async () => {
-            return User.find({})
+            return await User.find({})
         }
     },
 }
-
-module.exports = resolvers;
+module.exports = resolvers
