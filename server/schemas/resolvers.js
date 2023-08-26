@@ -3,6 +3,7 @@ const { Item, User } = require('../models');
 const resolvers = {
     Query: {
         items: async () => {
+            console.log('hit')
             return await Item.find({});
         },
         item: async (parent, { id }, context) => {
