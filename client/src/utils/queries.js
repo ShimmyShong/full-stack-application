@@ -4,6 +4,8 @@ export const QUERY_ITEMS = gql`
 query QUERY_ITEMS {
     items {
         name
+        description
+        price
     }
 }
 `

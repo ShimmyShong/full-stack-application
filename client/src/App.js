@@ -2,6 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ApolloClient, ApolloProvider, InMemoryCache, createHttpLink } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context'
 import './App.css';
+import Shop from './pages/Shop';
+import NoPage from './pages/NoPage';
 import Main from './pages/Main';
 
 const httpLink = createHttpLink({
@@ -28,7 +30,9 @@ function App() {
     <ApolloProvider client={client}>
       <BrowserRouter>
         <Routes>
+          <Route path='/shop' element={<Shop />} />
           <Route path='/' element={<Main />} />
+          <Route path='*' element={<NoPage />} /> {/* Redirects to this page */}
         </Routes>
       </BrowserRouter>
     </ApolloProvider>
