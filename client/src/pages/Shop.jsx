@@ -13,7 +13,7 @@ const Shop = () => {
         <>
             <div className='shop'>
                 <h1 className='flex justify-center items-center font-bold text-4xl mt-8'>Shop</h1>
-                <div className='flex'>
+                <div className='grid grid-cols-4'>
                     {data.items.map((item, index) => {
                         return (
                             <div key={index}>

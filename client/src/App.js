@@ -6,6 +6,7 @@ import Shop from './pages/Shop';
 import NoPage from './pages/NoPage';
 import Main from './pages/Main';
 import SingleItem from './pages/SingleItem';
+import CreateItem from './pages/CreateItem';
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -33,6 +34,7 @@ function App() {
         <Routes>
           <Route path='/shop' element={<Shop />} />
           <Route path='/shop/:id' element={<SingleItem />} />
+          <Route path='/shop/create' element={<CreateItem />} />
           <Route path='/' element={<Main />} />
           <Route path='*' element={<NoPage />} /> {/* Redirects to this page */}
         </Routes>
