@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const ItemCard = ({ name, description, price }) => {
+const ItemCard = ({ name, description, price, id }) => {
     return (
         <div>
             <div className="max-w-sm w-full lg:max-w-full lg:flex justify-center">
@@ -16,6 +17,13 @@ const ItemCard = ({ name, description, price }) => {
                             <p className="text-gray-900 leading-none">${price}</p>
                         </div>
                     </div>
+
+                    <Link to={`/shop/${id}`}>
+                        <button className='text-white bg-slate-400 border border-blue-300 my-2 mr-2 p-3'>
+                            More Info
+                        </button>
+                    </Link>
+
                 </div>
             </div>
         </div>
