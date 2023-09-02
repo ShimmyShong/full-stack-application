@@ -21,15 +21,3 @@ export const QUERY_SINGLE_ITEM = gql`
         }
     }
 `
-
-export const CREATE_ITEM = gql`
-    query CREATE_ITEM ($name: String!, $description: String, $price: Float!, $image: String) {
-        item(name: $name, description: $description, price: $price, image: $image) {
-            name
-            description
-            price
-            image
-            id
-        }
-    }
-`
